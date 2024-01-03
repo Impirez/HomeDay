@@ -1,6 +1,4 @@
-# Nombre del Proyecto
-
-Descripción concisa del proyecto.
+# Home Day
 
 ## Descripción
 
