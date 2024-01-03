@@ -1,0 +1,157 @@
+---
+console.log('js')
+---
+
+<header class="header">
+    <!-- principal -->
+    <div id="NameLogo">
+        <img src="../../public/home-vita.svg" alt="Logo" width="90px">
+        <h1 class="title">HomeDay</h1>
+    </div>
+    <!-- informacion -->
+    <div id="Informacion">
+        <a class="btn bt1" href="/"><img src="../../public/icons8-casa.svg" alt="home-c" width="35px"><p>Home</p></a>
+        <a class="btn bt2" href="/Information"><img src="../../public/book.svg" alt="home-c" width="35px"><p>Informacion</p></a>  
+        <a class="btn bt3" href="/promotion"><img src="../../public/start.svg" alt="home-c" width="35px"><p>Promociones</p></a>
+        <a class="btn bt4" href="/contact"><img src="../../public/contact.svg" alt="home-c" width="35px"><p>Contactanos</p></a>
+    </div>
+    <!-- dark/white mode -->    
+    <div id="Redirect-wasap"> 
+        <a href="https://wa.me/51944336793" target="_blank">
+            <img src="../../public/whatsapp-3.svg" alt="wsp" width="30px">
+            <p>Whatsapp Directo</p>
+        </a>
+    </div>
+</header>
+
+<style>
+    .header {
+        position: sticky;
+        min-width: 520px;
+        left: 0;
+        top: 0;
+        justify-content: space-between;
+        display: flex;
+        background-color: transparent;
+        width: 100%; 
+        height: 100px;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        background-color: white;
+        z-index: 1;
+    }
+
+    #Redirect-wasap{
+        transition: transform 0.3s;
+    }
+
+    #Redirect-wasap:hover{
+        transform: translateY(-10px);
+        background-color: aliceblue;
+        border-radius: 10px;
+    }
+
+    .btn{
+        transition: transform 0.3s ;
+    }
+
+    .btn:hover{
+        transform: translateY(-10px);
+        background-color: aliceblue;
+        border-radius: 10px;
+    }
+    
+    #Informacion{
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        flex-wrap: wrap;
+        height: inherit;
+        justify-content: center;
+    }
+
+    #Informacion a{
+        padding: 8px;
+        margin: 2px;
+        color: black;
+        text-decoration: none;
+    }
+
+    #Informacion img{
+        display: none;
+    }
+
+    #NameLogo{
+        display: flex;
+        align-items: center;
+    }
+
+    #NameLogo img{
+        margin-right: 10px;
+    }
+
+    #Redirect-wasap a{
+        display: flex;
+        border-radius: 15px;
+        align-items: center;
+        padding: 8px;
+        text-decoration: none;
+        color: black;
+    }
+
+    #Redirect-wasap p{
+        padding-left: 4px;
+    }
+
+    .title {
+        color: rgb(0, 0, 0);
+    }
+
+    @media screen and (max-width: 500px){
+        #Informacion{
+            min-width: 350px;
+        }
+    }
+
+    @media screen and (max-width: 700px){
+        #Informacion img{
+            width: 20px;
+        }
+        #Informacion a{
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+
+        #NameLogo h1{
+            display: none;
+        }
+
+        #Redirect-wasap p{
+            display: none;
+        }  
+
+        #Redirect-wasap a{
+        align-items: center;
+        padding: 10px;
+        height: 55px;
+        }
+    }
+
+    @media screen and (max-width: 1200px){
+        #Informacion p{
+            display: none;
+        }
+
+        #Informacion img{
+            display: block;
+        }
+
+        #Informacion a{
+            margin-right: 20px;
+        }
+    } 
+
+</style>

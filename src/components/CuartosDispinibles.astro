@@ -1,0 +1,191 @@
+---
+---
+
+<section>
+    <div class="container">
+        <div class="container-body">
+            <div class="Title">
+                <h2>Cuartos Disponibles</h2>
+            </div>
+                <div class="container-cuartos" id="contenedor-cuartos">
+                    <!-- El contenedor cuartos-content se creará dinámicamente aquí -->
+                </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    let svgs = [
+        {conB: 
+        `
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bath" width="44" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" />
+                                        <path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" />
+                                        <path d="M4 21l1 -1.5" />
+                                        <path d="M20 21l-1 -1.5" />
+                                    </svg>
+
+
+        `
+        },
+        {sinB: 
+        `
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bath-off" width="44" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M16 12h4a1 1 0 0 1 1 1v3c0 .311 -.036 .614 -.103 .904m-1.61 2.378a3.982 3.982 0 0 1 -2.287 .718h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1h8" />
+                                        <path d="M6 12v-6m1.178 -2.824c.252 -.113 .53 -.176 .822 -.176h3v2.25" />
+                                        <path d="M4 21l1 -1.5" />
+                                        <path d="M20 21l-1 -1.5" />
+                                        <path d="M3 3l18 18" />
+                                        </svg>
+        `
+        },
+        {one: 
+        `
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-stretching-2" width="44" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M11 4a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+                                        <path d="M6.5 21l3.5 -5" />
+                                        <path d="M5 11l7 -2" />
+                                        <path d="M16 21l-4 -7v-5l7 -4" />
+
+        `
+        },
+        {two: 
+        `
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-stretching-2" width="44" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M11 4a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+                                        <path d="M6.5 21l3.5 -5" />
+                                        <path d="M5 11l7 -2" />
+                                        <path d="M16 21l-4 -7v-5l7 -4" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-stretching-2" width="44" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M11 4a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+                                        <path d="M6.5 21l3.5 -5" />
+                                        <path d="M5 11l7 -2" />
+                                        <path d="M16 21l-4 -7v-5l7 -4" />
+        `
+        }
+    ]
+
+    let information = [
+        // 1
+        { nombre: "Cuarto1", precio: 10, cantidad: 3, img:'../../public/cuartos-img/cuarto1.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[0].conB, person: svgs[2].one},
+        // 2
+        { nombre: "Cuarto2", precio: 15, cantidad: 2, img:'../../public/cuartos-img/cuarto2.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[1].sinB, person: svgs[3].two },
+        // 3
+        { nombre: "Cuarto3", precio: 20, cantidad: 1, img:'../../public/cuartos-img/cuarto3.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[0].conB, person: svgs[2].one },
+        // 4
+        { nombre: "Cuarto4", precio: 25, cantidad: 4, img:'../../public/cuartos-img/cuarto4.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[1].sinB, person: svgs[3].two },
+        // 5
+        { nombre: "Cuarto5", precio: 30, cantidad: 2, img:'../../public/cuartos-img/cuarto5.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[0].conB, person: svgs[2].one },
+        // 6
+        { nombre: "Cuarto6", precio: 18, cantidad: 3, img:'../../public/cuartos-img/cuarto6.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[1].sinB, person: svgs[3].two },
+        // 7
+        { nombre: "Cuarto7", precio: 22, cantidad: 1, img:'../../public/cuartos-img/cuarto7.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[0].conB, person: svgs[2].one},
+        // 8
+        { nombre: "Cuarto8", precio: 17, cantidad: 2, img:'../../public/cuartos-img/cuarto8.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[1].sinB, person: svgs[3].two },
+        // 9
+        { nombre: "Cuarto9", precio: 17, cantidad: 2, img:'../../public/cuartos-img/cuarto9.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[0].conB, person: svgs[2].one },
+        // 10
+        { nombre: "Cuarto10", precio: 17, cantidad: 2, img:'../../public/cuartos-img/cuarto10.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.', wath: svgs[1].sinB, person: svgs[3].two },
+        // 11
+        { nombre: "Cuarto11", precio: 17, cantidad: 2, img:'../../public/cuartos-img/cuarto10.jpg', lorem: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit, cumque totam impedit error nostrum maxime.',wath: svgs[0].conB, person: svgs[2].one },
+        // ... más objetos de información
+    ];
+
+    // Número de iteraciones deseado
+    let numIteraciones = 5;
+
+    // Obtén el contenedor principal
+    let contenedorPrincipal = document.getElementById("contenedor-cuartos");
+
+    // Itera según el número deseado de iteraciones
+    for (let i = 0; i < numIteraciones && i < information.length; i++) {
+        let item = information[i];
+        
+        // Crea un nuevo contenedor cuartos-content
+        let nuevoContenedor = document.createElement("article");
+        nuevoContenedor.className = "cuartos-content";
+        nuevoContenedor.style.display = "flex";
+        nuevoContenedor.style.flexDirection = "column";
+        nuevoContenedor.style.margin = "20px";
+        nuevoContenedor.style.border = "1px solid black";
+        nuevoContenedor.style.width = "20%";
+        nuevoContenedor.style.float = "left";
+        nuevoContenedor.style.height = "auto";
+        nuevoContenedor.style.paddingBottom = "15px";
+        
+        // Crea la carta y agrega al nuevo contenedor
+        let carta = document.createElement("div");
+        carta.innerHTML = `
+            <div class="img">
+                <img src="${item.img}" alt="" width="100%">
+            </div>
+
+            <div class="information-content">
+                <div class="lorem">
+                    <p>${item.lorem}</p>
+                </div>
+
+                <div class="propertys" style="display: flex; align-items: center; justify-content: space-around; height: 5vh; margin-top: 10px">
+                    <div>
+                        ${item.wath}
+                    </div>
+                    <button>Más</button>
+                    <div>   
+                        ${item.person}    
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        nuevoContenedor.appendChild(carta);
+
+        // Agrega el nuevo contenedor al contenedor principal
+        contenedorPrincipal.appendChild(nuevoContenedor);
+    }
+</script>
+
+
+
+<style>
+    section{
+        height: auto;
+        width: 100%;
+        background-color: white;
+        min-width: 520px;
+        /* border: 1px solid black; */
+    }
+
+    .Title{
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container{
+        width:  inherit;
+        height: inherit;
+    }
+
+    .container-body{
+        width: inherit;
+        height: auto;
+        text-align: center;
+    }
+
+    .container-cuartos{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: inherit;
+        justify-content: center;
+    }
+
+
+</style>

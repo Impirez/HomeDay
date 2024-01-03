@@ -1,0 +1,155 @@
+---
+
+
+---
+
+<div class="container">
+    <div class="slider-container">
+        <!-- 1 -->
+        <section class="content-slider content1">
+            <div class="text">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sapiente aspernatur exercitationem laborum, quas voluptatum nostrum. Quos expedita odit molestias doloremque, iusto quasi temporibus veniam voluptatum odio ea nisi amet?</p>
+                <a href="#">About</a>
+            </div>
+                <img id="image1" src="../../public/images/inimate1.png" alt="img">
+        </section>
+        <!-- 2 -->
+        <section class="content-slider content2">
+            <div class="text">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sapiente aspernatur exercitationem laborum, quas voluptatum nostrum. Quos expedita odit molestias doloremque, iusto quasi temporibus veniam voluptatum odio ea nisi amet?</p>
+                <a href="#">About</a>
+            </div>
+                <img id="image2" src="../../public/images/animate2.png" alt="img">
+        </section>
+        <!-- 3 -->
+        <section class="content-slider content3">
+            <div class="text">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sapiente aspernatur exercitationem laborum, quas voluptatum nostrum. Quos expedita odit molestias doloremque, iusto quasi temporibus veniam voluptatum odio ea nisi amet?</p>
+                <a href="#">About</a>
+            </div>
+                <img id="image3" src="../../public/images/animate3.png" alt="img">
+        </section>
+        <!-- 1* -->
+        <section class="content-slider content1">
+            <div class="text">
+                <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sapiente aspernatur exercitationem laborum, quas voluptatum nostrum. Quos expedita odit molestias doloremque, iusto quasi temporibus veniam voluptatum odio ea nisi amet?</p>
+                <a href="#">About</a>
+            </div>
+                <img id="image4" src="../../public/images/inimate1.png" alt="img">
+        </section>
+    </div>
+</div>
+
+<script>
+    let slider = document.querySelector('.slider-container');
+    let sliderIndividual = document.querySelectorAll('.content-slider');
+    let contador = 1;
+    let width = sliderIndividual[0].clientWidth;
+    let intervalo = 5000;
+
+    window.addEventListener('resize', function(){
+        width = sliderIndividual[0].clientWidth;
+    });
+
+    setInterval(function(){
+        slides();
+    },intervalo);
+
+    function slides(){
+        let slide = slider as HTMLElement;
+        slide.style.transform = "translate("+(-width*contador)+"px)";
+        slide.style.transition = "transform .7s ease";
+        contador++;
+
+        if(contador == sliderIndividual.length){
+            setTimeout(function(){
+                slide.style.transform = "translate(0px)";
+                slide.style.transition = "transform 0s ease";
+                contador = 1;
+            },2000)
+        }
+    }
+</script>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 90vh;
+    width: 100%;
+    min-width: 520px;
+    background-image: url('https://img.freepik.com/vector-premium/fondo-abstracto-onda-blanca-gris-diseno-suave-trabajo-grafico_41084-468.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.slider-container {
+    height: inherit;
+    width: inherit;
+    display: flex;
+}
+
+
+.content-slider {
+    height: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.content-slider img {
+    height: 300px;
+    animation-name: imgAnimate;
+    animation-duration: 3s;
+    position: relative;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes imgAnimate {
+    0% {
+        top: 0; 
+    }
+
+    50% {
+        top: 60px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+
+.text {
+    width: 50%;
+}
+
+@media screen and (max-width: 1100px) {
+    .content-slider img {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .text {
+        width: 30%;
+    }
+
+    .content-slider img {
+        height: 150px;
+    }
+}
+</style>
